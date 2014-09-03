@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "createAngular";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>create-angular</h2>
+
+
+<div data-ng-app data-ng-controller="contactController" class="container">
+    <strong class="error">{{ error }}</strong>
+    <div id="mydiv" data-ng-show="loading">
+        <img src="Images/ajax-loader.gif" class="ajax-loader" />
+    </div>
+    <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
+    <form name="addContact" data-ng-show="addMode" style="width:600px;margin:0px auto;">
+        <label>Ime:</label><input type="text" data-ng-model="newcontact.Ime" required />
+        <label>Prezime:</label><input type="text" data-ng-model="newcontact.Prezime" required />
+        <label>Tag:</label><input type="text" data-ng-model="newcontact.Tag" />
+        <label>Adresa:</label><input type="text" data-ng-model="newcontact.Adresa"  />
+        <label>Telefon:</label><input type="text" data-ng-model="newcontact.Telefon"  />
+        <label>Email:</label><input type="text" data-ng-model="newcontact.Email"  />
+        <label>Datum_rodenja:</label><input type="text" data-ng-model="newcontact.Datum_rodenja"  />
+        <br />
+        <br />
+        <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addContact.$valid" class="btn btn-primary" />
+        <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+        <br /><br />
+    </form>
+    <table class="table table-bordered table-hover" style="width:800px">
+        <tr>
+            <th>#</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Tag</th>
+            <th>Adresa</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Datum_rodenja</th>
+        </tr>
+
+        <tr data-ng-repeat="contact in contacts">
+            <td><strong data-ng-hide="contact.editMode">{{ contact.ID }}</strong></td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Ime }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Ime" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Prezime }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Prezime" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Tag }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Tag" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Adresa }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Adresa" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Telefon }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Telefon" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Email }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Email" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode">{{ contact.Datum_rodenja }}</p>
+                <input data-ng-show="contact.editMode" type="text" data-ng-model="contact.Datum_rodenja" />
+            </td>
+            <td>
+                <p data-ng-hide="contact.editMode"><a data-ng-click="toggleEdit(contact)" href="javascript:;">Edit</a> | <a data-ng-click="deletecontact(contact)" href="javascript:;">Delete</a></p>
+                <p data-ng-show="contact.editMode"><a data-ng-click="save(contact)" href="javascript:;">Save</a> | <a data-ng-click="toggleEdit(contact)" href="javascript:;">Cancel</a></p>
+            </td>
+        </tr>
+    </table>
+    <hr />
+</div>  

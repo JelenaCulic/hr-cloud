@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MvcContacts.Models.Contact>
+
+@{
+    ViewBag.Title = "SearchIndex";
+}
+
+<h2>SearchIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") 
+    <p>
+    @Html.ActionLink("List", "Index")</p>
+
+    @using (Html.BeginForm("SearchIndex","Contact",FormMethod.Get)){     
+         <p> Tag: @Html.DropDownList("Tag_c", "All")
+             Ime: @Html.TextBox("Ime_c")
+             Prezime: @Html.TextBox("Prezime_c")
+         <input type="submit" value="Filter" /></p> 
+        } 
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum_rodenja)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum_rodenja)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,67 @@
+﻿@model MvcContacts.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Contact</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prezime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prezime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tag)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tag)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Adresa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Adresa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefon)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefon)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Datum_rodenja)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Datum_rodenja)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

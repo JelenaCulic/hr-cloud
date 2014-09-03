@@ -1,0 +1,64 @@
+﻿@model MvcContacts.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Contact</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prezime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prezime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tag)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tag)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Adresa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Adresa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefon)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefon)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Datum_rodenja)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Datum_rodenja)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
